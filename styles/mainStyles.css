@@ -3,11 +3,8 @@
 	padding: 0;
 }
 ::-webkit-scrollbar {
-	height: .8em;
+	height: .5em;
 	width: .5em;
-}
-::-webkit-scrollbar-track {
-	background: #000;
 }
 ::-webkit-scrollbar-thumb {
 	background-color: #FF0000;
@@ -85,6 +82,15 @@ main > section > ul > li:not(li:first-of-type) {
 	border-radius: 50%;
 	animation: loaderAnim 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
 }
+#error {
+	position: absolute;
+	text-align: center;
+	font-size: 1.5em;
+	color: red;
+	left: 50%;
+	top: 80%;
+	transform: translate(-50%, -50%);
+}
 main > section > ul > li > h1{
 	text-transform: uppercase;
 	text-align: center;
@@ -108,27 +114,25 @@ main > section > ul > li > select {
 	margin-top: 4em;
 }
 main > section > ul > li img {
-	grid-area: 2 / 2 / span 2 / span 2;
-	width: 23em;
+	grid-area: 3 / 2 / span 2 / span 2;
+	height: 30em;
 	box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
 main > section > ul > li h2 {
 	padding: .2em 0;
 	text-align: left;
-	grid-area: 3 / 5 / span 3 / span 6;
-	max-width: 65%;
+	grid-area: 4 / 6 / span 3 / span 3;
 	font-size: 2em;
 }
 main > section > ul > li p:first-of-type{
-	padding: 3em 0;
-	grid-area: 5 / 5 / span 3 / span 6;
-	max-width: 65%;
+	grid-area: 5 / 6 / span 1 / span 3;
 	line-height: 1.7em;
+	margin-top: -8em;
 }
 main > section > ul > li p:last-of-type {
 	font-style: italic;
-	grid-area: 9 / 2 / span 5 / span 3;
-	max-width: 25em;
+	grid-area: 6 / 2 / span 5 / span 3;
+	margin-top: 2em;
 }
 @keyframes loaderAnim {
 	0% {

@@ -1,35 +1,42 @@
-const ul = document.querySelector('ul');
+const ul = document.querySelector('ul')
 const dropDown = document.querySelector("#selectNumber")
-dropDown.addEventListener("change", function(e) {
-	replace()
-	getBooks()
-});
+
+dropDown.addEventListener("keypress", function(e) {
+	if (e.key === 'Enter') {
+		replace()
+		getBooks()
+	}
+})
 
 function getBooks() {
-	const cors = 'https://cors-anywhere.herokuapp.com/';
-	const endpoint = 'https://zoeken.oba.nl/api/v1/search/?q=';
-	const valueDropdown = dropDown.options[dropDown.selectedIndex].value.toString();
-	const key = '17a9c4d4d56a41b55abc2d3096e94be4';
-	const secret = '4289fec4e962a33118340c888699438d';
-	const detail = 'Default';
-	const url = `${cors}${endpoint}${valueDropdown}&authorization=${key}&detaillevel=${detail}&output=json`;
+	const cors = 'https://cors-anywhere.herokuapp.com/'
+	const endpoint = 'https://zoeken.oba.nl/api/v1/search/?q='
+	const valueDropdown = dropDown.options[dropDown.selectedIndex].value.toString()
+	const key = '17a9c4d4d56a41b55abc2d3096e94be4'
+	const secret = '4289fec4e962a33118340c888699438d'
+	const detail = 'Default'
+	const url = `${cors}${endpoint}${valueDropdown}&authorization=${key}&detaillevel=${detail}&output=json`
 	const config = {
 		Authorization: `Bearer ${secret}`
-	};
+	}
 	showLoading()
-	fetch(url, config).then(response => {
+	fetch(url, config)
+	.then(response => {
 		return response.json();
-	}).then(data => {
-		renderBooks(data);
+	})
+	.then(data => {
+		renderBooks(data)
+		console.log(data);
 		hideLoading()
-	}).catch(err => {
-		console.log(err);
-	});
+	})
+	.catch(() => {
+		ul.insertAdjacentHTML('beforebegin', `<p id="error">Error, er is iets misgegaan, probeer het opnieuw.</p>`)
+		hideLoading()
+	})
 }
 
 function renderBooks(data) {
-	const results = data.results;
-	console.dir(results);
+	const results = data.results
 	results.forEach((book) => {
 		const html = `
             <li>
@@ -38,19 +45,19 @@ function renderBooks(data) {
                 <p>${book.summaries ? book.summaries[0] : 'Sorry, geen samenvatting beschikbaar.'}</p>
                 <p>${book.authors}</p>
             </li>
-          `;
-		ul.insertAdjacentHTML('beforeend', html);
-	});
+          `
+		ul.insertAdjacentHTML('beforeend', html)
+	})
 }
 
 function showLoading() {
-	const loadingSection = document.querySelector('div');
-	loadingSection.classList.add('loader');
+	const loadingSection = document.querySelector('div')
+	loadingSection.classList.add('loader')
 }
 
 function hideLoading() {
-	const loadingSection = document.querySelector('.loader');
-	loadingSection.classList.remove('loader');
+	const loadingSection = document.querySelector('.loader')
+	loadingSection.classList.remove('loader')
 }
 
 function replace() {
@@ -58,9 +65,9 @@ function replace() {
 		const parent = node.parentNode;
 		const children = Array.from(node.children);
 		for (const child of children) {
-			node.removeChild(child);
-			parent.insertBefore(child, node);
+			node.removeChild(child)
+			parent.insertBefore(child, node)
 		}
-		parent.removeChild(node);
+		parent.removeChild(node)
 	}
 }
