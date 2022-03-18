@@ -1,4 +1,4 @@
-# OBA: Diet books
+# OBA: Diet books 
 Welcome to this repository. Here you can find my art app called **OBA: Diet books**. The concept is that the user can view the best books about diets on their device. The data that is used, is from the OBA API. 
 
 Follow this link to check out the full app!
