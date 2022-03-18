@@ -28,6 +28,7 @@ function getBooks() {
 		renderBooks(data)
 		console.log(data);
 		hideLoading()
+		visibleAnimation()
 	})
 	.catch(() => {
 		ul.insertAdjacentHTML('beforebegin', `<p id="error">Error, er is iets misgegaan, probeer het opnieuw.</p>`)
@@ -39,7 +40,7 @@ function renderBooks(data) {
 	const results = data.results
 	results.forEach((book) => {
 		const html = `
-            <li>
+            <li class="">
                 <img src="${book.coverimages[1]}">
                 <h2>${book.titles[0]}</h2>
                 <p>${book.summaries ? book.summaries[0] : 'Sorry, geen samenvatting beschikbaar.'}</p>
@@ -69,5 +70,25 @@ function replace() {
 			parent.insertBefore(child, node)
 		}
 		parent.removeChild(node)
+	}
+}
+
+function visibleAnimation() {
+	const options = {
+		threshold: [0.1]
+	};
+	const observer = new IntersectionObserver(onEntry, options);
+	const elements = document.querySelectorAll('li:not(li:first-of-type)');
+
+	function onEntry(entry) {
+		entry.forEach((change) => {
+			if (change.isIntersecting) {
+				change.target.classList.add('visible');
+			}
+		});
+	}
+	
+	for (let elm of elements) {
+		observer.observe(elm);
 	}
 }

@@ -72,6 +72,7 @@ main > section > ul > li:not(li:first-of-type) {
 	grid-template: repeat(5, 1fr 2fr) / repeat(5, 3fr 2fr);
 	scroll-snap-align: center;
 	margin-right: -16vw;
+	opacity: 0;
 }
 .loader {
 	position: absolute;
@@ -81,6 +82,9 @@ main > section > ul > li:not(li:first-of-type) {
 	border: .1em solid #000;
 	border-radius: 50%;
 	animation: loaderAnim 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+.visible {
+	animation: appear 4s both;
 }
 #error {
 	position: absolute;
@@ -148,3 +152,12 @@ main > section > ul > li p:last-of-type {
 	  opacity: 1;
 	}
   }
+  @keyframes appear {
+	0% {
+		clip-path: polygon(0 0, -50% 0, 0 100%, 0 100%);
+	}
+	100% {
+		clip-path: polygon(0 0, 120% 0, 120% 120%, 0 120%);
+		opacity: 1;
+	}
+}
