@@ -18,6 +18,8 @@ Als sportieve twintiger wil ik mij verdiepen in het effect van gezonde voeding o
 
 ## A preview
 <img width="750" alt="image" src="https://user-images.githubusercontent.com/74137185/158977756-0e44a555-2e8b-42ee-ba72-2334c8f29d40.png">
+<img width="750" alt="image" src="https://user-images.githubusercontent.com/74137185/158989453-016aff74-6853-4d09-91f9-b53d55291941.png">
+
 
 
 ## How to install
