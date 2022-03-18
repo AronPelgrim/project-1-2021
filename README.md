@@ -1,8 +1,8 @@
-# Search your diet
-Welcome to this repository. Here you can find my art app called **Search your diet**. The concept is that the user can view the best books about diets on their device. The data that is used, is from the OBA API. 
+# OBA: Diet books
+Welcome to this repository. Here you can find my art app called **OBA: Diet books**. The concept is that the user can view the best books about diets on their device. The data that is used, is from the OBA API. 
 
 Follow this link to check out the full app!
-[Search your diet app](https://aronpelgrim.github.io/project-1-2021/)
+[OBA: Diet books](https://aronpelgrim.github.io/project-1-2021/)
 
 ## Table of Contents
 
